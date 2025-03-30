@@ -74,6 +74,24 @@ def get_language_choice() -> str:
         else:
             print("Invalid choice. Please enter a number between 1 and 4.")
 
+def get_quality_choice() -> str:
+    """Get user's choice of video quality."""
+    while True:
+        print("\nSelect video download quality:")
+        print("1. Low (Faster download, less disk space)")
+        print("2. Medium (Standard quality, balanced)")
+        print("3. High (Best quality, larger file size)")
+        choice = input("Enter your choice (1, 2, or 3): ").strip()
+        
+        if choice == "1":
+            return "low"
+        elif choice == "2":
+            return "medium"
+        elif choice == "3":
+            return "high"
+        else:
+            print("Invalid choice. Please enter 1, 2, or 3.")
+
 def main():
     """Main function."""
     temp_cleanup = TempCleanup()
@@ -98,6 +116,9 @@ def main():
         # Get language choice
         source_language = get_language_choice()
         
+        # Get video quality choice
+        video_quality = get_quality_choice()
+        
         # Get GPU choice
         use_gpu = get_gpu_choice()
         
@@ -106,7 +127,7 @@ def main():
         with temp_cleanup:  # Use context manager for automatic cleanup
             # 1. Download video
             print("1. Downloading video...")
-            video_path = download_video(video_url)
+            video_path = download_video(video_url, quality=video_quality)
             print(f"Video downloaded to: {video_path}\n")
             
             # 2. Extract audio
