@@ -78,9 +78,9 @@ def get_quality_choice() -> str:
     """Get user's choice of video quality."""
     while True:
         print("\nSelect video download quality:")
-        print("1. Low (Faster download, less disk space)")
-        print("2. Medium (Standard quality, balanced)")
-        print("3. High (Best quality, larger file size)")
+        print("1. Low (480p - Less disk space)")
+        print("2. Medium (720p - Balanced quality)")
+        print("3. High (1080p or best available - Best quality)")
         choice = input("Enter your choice (1, 2, or 3): ").strip()
         
         if choice == "1":

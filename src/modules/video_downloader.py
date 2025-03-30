@@ -21,11 +21,11 @@ def download_video(url: str, quality: str = "medium", output_path: str = "downlo
     
     # Define format based on quality parameter
     if quality == "low":
-        format_option = "worst[ext=mp4]"
-    elif quality == "medium":
         format_option = "bestvideo[height<=480][ext=mp4]+bestaudio[ext=m4a]/best[height<=480][ext=mp4]/best"
+    elif quality == "medium":
+        format_option = "bestvideo[height<=720][ext=mp4]+bestaudio[ext=m4a]/best[height<=720][ext=mp4]/best"
     else:  # high quality (default)
-        format_option = "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
+        format_option = "bestvideo[height<=1080][ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
     
     ydl_opts = {
         'format': format_option,
