@@ -5,6 +5,11 @@ Main script for video translation and synchronization.
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
 from modules.video_downloader import download_video
 from modules.audio_extractor import extract_audio
 from modules.transcriber import transcribe_audio
